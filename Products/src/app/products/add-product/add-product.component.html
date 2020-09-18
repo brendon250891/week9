@@ -1,0 +1,37 @@
+<div class="container mx-auto py-2 px-4 mt-8 flex flex-col bg-white w-1/2 text-gray-800 rounded shadow">
+    <h1 class="self-start text-xl uppercase tracking-wider font-semibold">Add New Product</h1><hr>
+
+    <div class="flex flex-col">
+        <div class="mt-4">
+            <p class="text-sm uppercase tracking-wide">Id:</p>
+            <input class="border border-gray-500 rounded w-1/4 px-2 py-1" disabled value="{{ product.id }}">
+        </div>
+
+        <div class="mt-4">
+            <p class="text-sm uppercase tracking-wide">Name:</p>
+            <input class="border border-gray-500 rounded w-full px-2 py-1" placeholder="Product name..." [(ngModel)]="product.name" name="name">
+        </div>
+
+        <div class="mt-4">
+            <p class="text-sm uppercase tracking-wide">Description:</p>
+            <!-- <input class="border border-gray-500 rounded w-2/4 px-2 py-1" placeholder="Product name..."> -->
+            <textarea class="w-full border border-gray-500 px-2 py-1" rows="5" placeholder="Description..." [(ngModel)]="product.description" name="description"></textarea>
+        </div>
+
+        <div class="mt-4">
+            <p class="text-sm uppercase tracking-wide">Price:</p>
+            <input type="number" class="border border-gray-500 rounded w-1/4 px-2 py-1" placeholder="Price..." [(ngModel)]="product.price" name="price">
+        </div>
+
+
+        <div class="mt-4">
+            <p class="text-sm uppercase tracking-wide">Units:</p>
+            <input type="number" class="border border-gray-500 rounded w-1/4 px-2 py-1" placeholder="Units..." [(ngModel)]="product.units" name="units">
+        </div>
+
+        <div class="mt-4 flex py-2 space-x-4 w-1/2 self-end">
+            <button (click)="cancel()" class="flex-1 bg-blue-500 px-2 py-2 rounded text-white">Cancel</button>
+            <button (click)="addProduct()" class="flex-1 bg-green-500 px-2 py-2 rounded text-white">Add</button>
+        </div>
+    </div>
+</div>

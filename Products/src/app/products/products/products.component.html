@@ -1,0 +1,41 @@
+<div class="container mx-auto py-12 w-2/3 text-gray-800">
+    
+    <div class="flex flex-col items-center py-4">
+        <p *ngIf="message" class="flex flex-col items-center py-2 {{ messageType }} rounded text-white w-2/3">{{ message }}</p>
+    </div>
+
+    <div class="flex flex-col items-center">
+        <input class="self-center w-1/2 px-2 py-1 border border-gray-400 rounded" type="text" name="search" 
+            placeholder="Find product..." [(ngModel)]="search" (ngModelChange)="searchChanged()">
+    </div>
+
+    <div class="py-4" *ngIf="allProducts.length > 0; else noProducts" class="mt-2 overflow-auto" style="height:32rem;">
+    
+        <div *ngFor="let product of allProducts" class="flex items-center mt-2 py-2 border border-gray-600 bg-white hover:bg-gray-100 cursor-pointer">
+            <div (click)="editProduct(product)" class="flex items-center py-2">
+                <div class="flex flex-col items-center px-2 py-2">
+                    <img src="" alt="image placeholder">
+                    <p>${{ product.price }}</p>
+                </div>
+                <div class="flex-1 flex flex-col px-2 py-2">
+                    <p class="text-sm uppercase font-semibold">{{ product.name }}</p>
+                    <p class="text-xs">{{ product.description }}</p>
+                </div> 
+                <div class="flex flex-col items-center px-2 py-2">
+                    <p class="text-sm uppercase font-semibold">Qty</p>
+                    <p class="text-xs">{{ product.units }}</p>
+                </div>   
+            </div>
+            <div class="flex flex-col items-center px-2">
+                <button (click)="removeProduct(product.id)" class="z-10 bg-red-500 px-2 py-2 rounded text-white hover:bg-red-400 focus:outline-none">Remove</button>
+            </div>
+        </div>
+    </div>
+    <ng-template #noProducts>
+        <p>There are no products to display.</p>
+    </ng-template>
+
+    <div class="flex flex-col py-4 items-end px-2">
+        <button (click)="addProduct()" class="bg-green-500 px-2 py-2 rounded text-white hover:bg-green-400 focus:outline-none">Add Product</button>
+    </div>
+</div>
