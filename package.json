@@ -1,0 +1,25 @@
+{
+  "name": "week9",
+  "version": "1.0.0",
+  "description": "week9 lab exercise",
+  "main": "index.js",
+  "scripts": {
+    "unitTest": "mocha ./unitTest/test.js",
+    "test": "mocha ./integrationTest/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brendon250891/week9.git"
+  },
+  "author": "Brendon Willoughby - s511885",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brendon250891/week9/issues"
+  },
+  "homepage": "https://github.com/brendon250891/week9#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.1.3"
+  }
+}
